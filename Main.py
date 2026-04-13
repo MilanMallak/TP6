@@ -13,11 +13,19 @@ class GameView(arcade.Window):
     def __init__(self):
         super().__init__(WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_TITLE, fullscreen=True)
 
+        self.background = arcade.Sprite("Assets/background.png", scale=4)
+        self.button = arcade.Sprite("Assets/button.png")
+
     def setup(self):
-        arcade.set_background_color(arcade.color.GRAY)
+
+        self.background.position = (960, 540)
+        self.button.position = (1742, 52)
 
     def on_draw(self):
         self.clear()
+
+        arcade.draw_sprite(self.background, pixelated=True)
+        arcade.draw_sprite(self.button, pixelated=True)
 
     def on_key_press(self, symbol: int, modifiers: int) -> EVENT_HANDLE_STATE:
         pass
