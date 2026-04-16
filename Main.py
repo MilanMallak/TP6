@@ -13,7 +13,7 @@ class GameView(arcade.Window):
     def __init__(self):
         super().__init__(WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_TITLE, fullscreen=True)
 
-        self.background = arcade.Sprite("Assets/background.png", scale=4)
+        self.background = arcade.Sprite("Assets/background_1.png", scale=4)
         self.button = arcade.Sprite("Assets/button.png")
 
     def setup(self):
