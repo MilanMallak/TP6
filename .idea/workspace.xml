@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="89a5c6e0-8e15-412f-b281-88a7819ecf3e" name="Changes" comment="23 mar">
-      <change afterPath="$PROJECT_DIR$/Assets/background_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/screen.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/startup.png" afterDir="false" />
+    <list default="true" id="89a5c6e0-8e15-412f-b281-88a7819ecf3e" name="Changes" comment="16 april">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/background.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/background_1.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -102,12 +98,21 @@
       <option name="project" value="LOCAL" />
       <updated>1774292944518</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="16 april">
+      <option name="closed" value="true" />
+      <created>1776370611576</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1776370611576</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="20 feb" />
     <MESSAGE value="23 mar" />
-    <option name="LAST_COMMIT_MESSAGE" value="23 mar" />
+    <MESSAGE value="16 april" />
+    <option name="LAST_COMMIT_MESSAGE" value="16 april" />
   </component>
 </project>
