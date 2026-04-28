@@ -8,13 +8,13 @@ class AnimationType(Enum):
     SCISSORS = 3
 
 class Animation(arcade.Sprite):
-    scale = 4
-    speed = 2.0
+    AnimationScale = 4
+    AnimationSpeed = 2.0
 
     def __init__(self, type):
         super().__init__()
 
-        self.animation_update_time = 1.0 / Animation.speed
+        self.animation_update_time = 1.0 / Animation.AnimationSpeed
         self.time_since_last_swap = 0.0
 
         self.type = type
@@ -39,7 +39,7 @@ class Animation(arcade.Sprite):
                 arcade.load_texture("assets/"),
             ]
 
-        self.scale = self.scale
+        self.scale = self.AnimationScale
         self.current_texture = 0
         self.set_texture(self.current_texture)
 
