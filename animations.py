@@ -45,12 +45,13 @@ class Animation(arcade.Sprite):
 
     def on_update(self, delta_time: float = 1 / 60):
         # Update the animation.
-        self.time_since_last_swap += delta_time
-        if self.time_since_last_swap > self.animation_update_time:
-            self.current_texture += 1
-            if self.current_texture < len(self.textures):
+        if self.type == AnimationType.STARTUP :
+            pass
+        else :
+            self.time_since_last_swap += delta_time
+            if self.time_since_last_swap > self.animation_update_time:
+                self.current_texture += 1
+                if not self.current_texture < len(self.textures):
+                    self.current_texture = 0
                 self.set_texture(self.current_texture)
-            else:
-                self.current_texture = 0
-                self.set_texture(self.current_texture)
-            self.time_since_last_swap = 0.0
+                self.time_since_last_swap = 0.0

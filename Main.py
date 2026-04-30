@@ -3,7 +3,7 @@
 import time
 from turtledemo.nim import SCREENWIDTH
 
-import animations
+import animations as anims
 
 import arcade
 from game_state import GameState
@@ -21,7 +21,7 @@ class GameView(arcade.Window):
 
         self.background = arcade.Sprite(scale=4)
         self.button = arcade.Sprite("Assets/button.png")
-        self.scrn = animations.Animation(animations.AnimationType.STARTUP)
+        self.scrn = anims.Animation(anims.AnimationType.STARTUP)
 
     def setup(self):
 
@@ -57,12 +57,13 @@ class GameView(arcade.Window):
 
             if computer_active == False :
                 self.background.set_texture(1)
-                #self.scrn.set_texture(1)
 
                 computer_active = True
             else :
                 arcade.close_window()
 
+    def on_update(self, delta_time: float) -> bool | None:
+        self.scrn.on_update(delta_time)
 
 
 def main():
