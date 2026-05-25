@@ -14,14 +14,18 @@ class Animation(arcade.Sprite):
     def __init__(self, type):
         super().__init__()
 
+        self.playing = False
+
         self.animation_update_time = 1.0 / Animation.AnimationSpeed
         self.time_since_last_swap = 0.0
 
         self.type = type
         if self.type == AnimationType.STARTUP:
+            self.time_since_last_swap = -1.0
             self.textures = [
                 arcade.load_texture("assets/startup.png"),
                 arcade.load_texture("assets/windows95.png"),
+                arcade.load_texture("assets/desktop.png")
             ]
         elif self.type == AnimationType.ROCK:
             self.textures = [
@@ -42,16 +46,27 @@ class Animation(arcade.Sprite):
         self.scale = self.AnimationScale
         self.current_texture = 0
         self.set_texture(self.current_texture)
+        print(self.animation_update_time)
 
     def on_update(self, delta_time: float = 1 / 60):
-        # Update the animation.
-        if self.type == AnimationType.STARTUP :
-            pass
-        else :
-            self.time_since_last_swap += delta_time
-            if self.time_since_last_swap > self.animation_update_time:
-                self.current_texture += 1
-                if not self.current_texture < len(self.textures):
-                    self.current_texture = 0
-                self.set_texture(self.current_texture)
-                self.time_since_last_swap = 0.0
+        if self.playing == True :
+
+            # Update the animation.
+            if self.type == AnimationType.STARTUP :
+
+                self.time_since_last_swap += delta_time
+                if self.time_since_last_swap > self.animation_update_time:
+                    if self.current_texture == 1 :
+                        self.current_texture = 2
+                    elif self.current_texture == 0 :
+                        self.current_texture = 1
+
+                    self.set_texture(self.current_texture)
+                    self.time_since_last_swap = -1.0
+
+            else :
+                self.time_since_last_swap += delta_time
+                if self.time_since_last_swap > self.animation_update_time:
+                    self.current_texture = (self.current_texture+1)%len(self.textures)
+                    self.set_texture(self.current_texture)
+                    self.time_since_last_swap = 0.0
