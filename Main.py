@@ -22,6 +22,7 @@ class GameView(arcade.Window):
         self.background = arcade.Sprite(scale=4)
         self.button = arcade.Sprite("Assets/button.png")
         self.scrn = anims.Animation(anims.AnimationType.STARTUP)
+        #self.icon = arcade.Sprite(anims.AnimationType.ssssssssssssssssss
 
     def setup(self):
 
@@ -31,15 +32,10 @@ class GameView(arcade.Window):
         self.background.textures.append(bg2)
         self.background.set_texture(0)
 
-        #startup = arcade.load_texture("Assets/startup.png")
-        #w95 = arcade.load_texture("Assets/windows95.png")
-        #self.scrn.textures.append(startup)
-        #self.scrn.textures.append(w95)
-        #self.scrn.set_texture(0)
-
         self.background.position = (960, 540)
         self.button.position = (1742, 52)
         self.scrn.position = (960, 616)
+        #self.icon.position = (1200, 800)
 
     def on_draw(self):
         self.clear()
@@ -59,6 +55,8 @@ class GameView(arcade.Window):
                 self.background.set_texture(1)
 
                 computer_active = True
+                self.scrn.playing = True
+
             else :
                 arcade.close_window()
 
