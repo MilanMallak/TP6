@@ -1,7 +1,8 @@
 from enum import Enum
 
 class GameState(Enum):
-   NOT_STARTED = True
-   ROUND_ACTIVE = False
-   ROUND_DONE = False
-   GAME_OVER = False
+   NOT_STARTED = 0
+   NOT_OPENED = 1
+   ROUND_ACTIVE = 2
+   ROUND_DONE = 3
+   GAME_OVER = 4
