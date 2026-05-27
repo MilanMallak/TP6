@@ -6,23 +6,30 @@ from turtledemo.nim import SCREENWIDTH
 import animations as anims
 
 import arcade
-from game_state import GameState
+
+import game_state
 
 from pyglet.event import EVENT_HANDLE_STATE
 
 WINDOW_WIDTH, WINDOW_HEIGHT = 1920, 1080
 WINDOW_TITLE = "Drawing"
 
-computer_active = False
-
 class GameView(arcade.Window):
     def __init__(self):
         super().__init__(WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_TITLE, fullscreen=True)
 
+        self.invisible_sprites = arcade.SpriteList()
+
+        self.icon = arcade.Sprite("Assets/game.png")
+        self.icon.visible = False
+
+        self.invisible_sprites.append(self.icon)
+
         self.background = arcade.Sprite(scale=4)
         self.button = arcade.Sprite("Assets/button.png")
         self.scrn = anims.Animation(anims.AnimationType.STARTUP)
-        #self.icon = arcade.Sprite(anims.AnimationType.ssssssssssssssssss
+
+        self.state = game_state.GameState.NOT_STARTED
 
     def setup(self):
 
@@ -35,7 +42,7 @@ class GameView(arcade.Window):
         self.background.position = (960, 540)
         self.button.position = (1742, 52)
         self.scrn.position = (960, 616)
-        #self.icon.position = (1200, 800)
+        self.icon.position = (1200, 800)
 
     def on_draw(self):
         self.clear()
@@ -49,12 +56,11 @@ class GameView(arcade.Window):
 
     def on_mouse_press(self, x: int, y: int, button: int, modifiers: int) -> EVENT_HANDLE_STATE:
         if self.button.collides_with_point((x, y)):
-            global computer_active
 
-            if computer_active == False :
+            if game_state.GameState.NOT_STARTED == self.state:
                 self.background.set_texture(1)
 
-                computer_active = True
+                self.state = game_state.GameState.NOT_OPENED
                 self.scrn.playing = True
 
             else :
