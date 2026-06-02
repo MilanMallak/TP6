@@ -11,6 +11,8 @@ class Animation(arcade.Sprite):
     AnimationScale = 4
     AnimationSpeed = 2.0
 
+    icon_visibility = False
+
     def __init__(self, type):
         super().__init__()
 
@@ -58,6 +60,7 @@ class Animation(arcade.Sprite):
                 if self.time_since_last_swap > self.animation_update_time:
                     if self.current_texture == 1 :
                         self.current_texture = 2
+                        Animation.icon_visibility = True
                     elif self.current_texture == 0 :
                         self.current_texture = 1
 
