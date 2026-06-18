@@ -17,11 +17,19 @@ class Animation(arcade.Sprite):
         super().__init__()
 
         self.playing = False
+        self.type = type
 
-        self.animation_update_time = 1.0 / Animation.AnimationSpeed
+        SPEEDS = {
+            AnimationType.STARTUP: 2.0,
+            AnimationType.ROCK: 2.0,
+            AnimationType.PAPER: 3.0,
+            AnimationType.SCISSORS: 6.0
+        }
+        speed = SPEEDS[self.type]
+        self.animation_update_time = 1.0 / speed
+
         self.time_since_last_swap = 0.0
 
-        self.type = type
         if self.type == AnimationType.STARTUP:
             self.time_since_last_swap = -1.0
             self.textures = [
@@ -31,18 +39,23 @@ class Animation(arcade.Sprite):
             ]
         elif self.type == AnimationType.ROCK:
             self.textures = [
-                arcade.load_texture("assets/"),
-                arcade.load_texture("assets/"),
+                arcade.load_texture("assets/R0.png"),
+                arcade.load_texture("assets/R1.png"),
+                arcade.load_texture("assets/R2.png"),
             ]
         elif self.type == AnimationType.PAPER:
             self.textures = [
-                arcade.load_texture("assets/"),
-                arcade.load_texture("assets/"),
+                arcade.load_texture("assets/P0.png"),
+                arcade.load_texture("assets/P1.png"),
+                arcade.load_texture("assets/P2.png"),
+                arcade.load_texture("assets/P1.png"),
             ]
         elif self.type == AnimationType.SCISSORS:
             self.textures = [
-                arcade.load_texture("assets/"),
-                arcade.load_texture("assets/"),
+                arcade.load_texture("assets/S0.png"),
+                arcade.load_texture("assets/S1.png"),
+                arcade.load_texture("assets/S2.png"),
+                arcade.load_texture("assets/S1.png"),
             ]
 
         self.scale = self.AnimationScale
